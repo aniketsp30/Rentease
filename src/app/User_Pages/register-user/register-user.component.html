@@ -1,0 +1,90 @@
+<section class="vh-100" >
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-10 col-xl-9">
+        <div class="card shadow-lg rounded-4">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 order-2 order-lg-1">
+
+                <h3 class="text-center text-primary fw-bold mb-3">ADD USER</h3>
+
+              <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)"> 
+
+                <!-- User Name -->
+                <div class="mb-4">
+                  <label for="name" class="form-label">Full Name</label>
+                  <input type="text" [(ngModel)]="user.name" name="name" id="name"
+                          #name="ngModel"
+                          class="form-control form-control-lg" required minlength="3">
+                  <div *ngIf="registerForm.submitted && name.invalid" class="text-danger">
+                    Name is required (min 3 characters).
+                  </div>
+                </div>
+              
+                <!-- Email -->
+                <div class="mb-4">
+                  <label for="email" class="form-label">Username (Email)</label>
+                  <input type="email" [(ngModel)]="user.username" name="username" id="email"
+                         #username="ngModel"
+                         pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$"
+                         class="form-control form-control-lg" required email>
+                  <div *ngIf="registerForm.submitted && username.invalid" class="text-danger">
+                    Valid email is required.
+                  </div>
+                </div>
+              
+                <!-- Phone -->
+                <div class="mb-4">
+                  <label for="phone" class="form-label">Phone</label>
+                  <input type="text" [(ngModel)]="user.phone" name="phone" id="phone"
+                         #phone="ngModel"
+                         class="form-control form-control-lg" required pattern="^[0-9]{10}$">
+                  <div *ngIf="registerForm.submitted && phone.invalid" class="text-danger">
+                    Enter a valid 10-digit phone number.
+                  </div>
+                </div>
+              
+                <!-- Address -->
+                <div class="mb-4">
+                  <label for="address" class="form-label">Address</label>
+                  <textarea class="form-control" rows="3" [(ngModel)]="user.address"
+                            name="address" id="address"
+                            #address="ngModel"
+                            required></textarea>
+                  <div *ngIf="registerForm.submitted && address.invalid" class="text-danger">
+                    Address is required.
+                  </div>
+                </div>
+              
+                <!-- Password -->
+                <div class="mb-4">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" [(ngModel)]="user.password" name="password" id="password"
+                         #password="ngModel"
+                         pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
+                         class="form-control form-control-lg" required minlength="6">
+                  <div *ngIf="registerForm.submitted && password.invalid" class="text-danger">
+                    Password must be at least 6 characters and password must contain number and characters
+                  </div>
+                </div>
+              
+                <!-- Buttons -->
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                  <button (click)="backOnLogin()" class="btn me-md-4 btn-outline-info btn-lg" type="button">Back</button>
+                </div>
+              </form>
+            </div>
+
+              <div class="col-md-10 col-lg-6 d-flex align-items-center order-1 order-lg-2">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  class="img-fluid rounded-4" alt="Product illustration">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

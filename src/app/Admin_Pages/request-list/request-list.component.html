@@ -1,0 +1,34 @@
+<div class="container mt-4">
+  <h2 class="mb-3">Rental Requests</h2>
+
+  <button class="btn btn-outline-primary mb-4" (click)="togglePendingView()">
+    {{ showPendingOnly ? 'Show All Requests' : 'Show Pending Only' }}
+  </button>
+
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let request of displayedRequests">
+      <div class="card h-100 shadow-sm">
+        <img *ngIf="request.product?.imagePaths"
+             [src]="'http://localhost:8080' + request.product.imagePaths"
+             class="card-img-top"
+             alt="Product Image"
+             style="height: 200px; object-fit: cover;">
+             
+        <div class="card-body">
+          <h5 class="card-title">{{ request.product.name }}</h5>
+          <p class="card-text">{{ request.product.description }}</p>
+          <p><strong>User:</strong> {{ request.user.username }}</p>
+          <p><strong>Rent Date:</strong> {{ request.rent_date }}</p>
+          <p><strong>Return Date:</strong> {{ request.return_date }}</p>
+          <p><strong>Status:</strong> {{ request.status }}</p>
+        </div>
+
+        <div class="card-footer bg-light" *ngIf="request.status === 'REQUEST'">
+          <button class="btn btn-success btn-sm me-2" (click)="approveRequest(request.id)">Approve</button>
+          <button class="btn btn-danger btn-sm" (click)="rejectRequest(request.id)">Reject</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

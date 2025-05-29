@@ -1,0 +1,26 @@
+<h2>Products in "{{ categoryName }}"</h2>
+<div *ngIf="products.length === 0">
+  <p>No products found in this category.</p>
+</div>
+<div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let product of products">
+        <div class="card h-100" >
+          <div class="card-img-top">
+          <img *ngIf="product.imagePaths"
+            [src]="'http://localhost:8080' + product.imagePaths.trim()"
+            alt="Product Image"
+            class="img-fluid rounded shadow-sm mb-2"
+            style="height: 300px;min-width:200px">
+          <p *ngIf="!product.imagePaths">Image not available</p>
+        </div>
+        <div class="card-body" style="background-color: rgb(126, 192, 211);">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+          <strong>₹{{ product.price }}</strong>
+        </div>
+        <div class="card-footer" style="background-color: lightblue;">
+          <a [routerLink]="['/user-dashboard/view', product.id]" class="btn btn-primary me-2">View</a>
+        </div>
+      </div>
+    </div>
+  </div>

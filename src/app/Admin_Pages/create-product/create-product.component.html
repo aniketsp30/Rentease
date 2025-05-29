@@ -1,0 +1,77 @@
+<section class="vh-100" >
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-10 col-xl-9">
+        <div class="card shadow-lg rounded-4">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 order-2 order-lg-1">
+
+                <h3 class="text-center text-primary fw-bold mb-3">ADD PRODUCT</h3>
+
+                <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+
+                  <div class="mb-4">
+                    <label for="name" class="form-label">Product Name</label>
+                    <input type="text" [(ngModel)]="products.name" name="name" id="name" class="form-control form-control-lg" required>
+                  </div>
+
+                  <div class="mb-4">
+                    <label for="category" class="form-label">Product Category</label>
+                    <select class="form-select form-select-lg" [(ngModel)]="products.category" name="category" id="category" required>
+                      <option disabled selected>Select Category</option>
+                      <option value="Clothing & Accessories">👗 Clothing & Accessories</option>
+                      <option value="Electronics & Entertainment">🎮 Electronics & Entertainment</option>
+                      <option value="Home Essentials">🧹 Home Essentials</option>
+                      <option value="Event & Decoration">🎉 Event & Decoration</option>
+                      <option value="Tools & Equipment">🛠️ Tools & Equipment</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-4">
+                    <label for="description" class="form-label">Product Description</label>
+                    <textarea class="form-control" rows="3" [(ngModel)]="products.description" name="description" id="description" required></textarea>
+                  </div>
+
+                  <div class="mb-4">
+                    <label for="quantity" class="form-label">Product Quantity</label>
+                    <input type="number" [(ngModel)]="products.quantity" id="quantity" name="quantity" class="form-control form-control-lg" required>
+                  </div>
+
+                  <div class="mb-4">
+                    <label for="price" class="form-label">Product Price (₹ Per Unit)</label>
+                    <input type="number" [(ngModel)]="products.price" id="price" name="price" class="form-control form-control-lg" required>
+                  </div>
+
+                  <div class="mb-4">
+                    <label for="available" class="form-label">Product Availability</label>
+                    <select class="form-select form-select-lg" [(ngModel)]="products.available" name="available" id="available">
+                      <option value="Available">Available</option>
+                      <option value="Not-Available">Not Available</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-4">
+                    <label for="images" class="form-label">Upload Images</label>
+                    <input type="file" class="form-control" id="images" (change)="onImageSelected($event)" name="images" multiple>
+                  </div>
+
+                 
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="submit" class="btn btn-primary btn-lg ">Submit</button>
+                    <button (click)="backOnList()" class="btn  me-md-4 btn-outline-info btn-lg" type="button">Back</button>
+                  </div>
+                </form>
+              </div>
+
+              <div class="col-md-10 col-lg-6 d-flex align-items-center order-1 order-lg-2">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  class="img-fluid rounded-4" alt="Product illustration">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

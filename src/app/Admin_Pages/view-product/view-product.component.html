@@ -1,0 +1,49 @@
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Product Details</h1>
+  <div class="card">
+    <div class="card-header bg-black text-white">
+      <h4 class="mb-0">Product ID: {{ product.id }}</h4>
+    </div>
+
+    <div class="card-body row">
+      <!-- Left side: Product Details -->
+      <div class="col-md-8">
+        <div class="row mb-3">
+          <div class="col-md-5 font-weight-bold">Product Name:</div>
+          <div class="col-md-7">{{ product.name }}</div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-5 font-weight-bold">Product Category:</div>
+          <div class="col-md-7">{{ product.category }}</div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-5 font-weight-bold">Description:</div>
+          <div class="col-md-7">{{ product.description }}</div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-5 font-weight-bold">Quantity:</div>
+          <div class="col-md-7">{{ product.quantity }}</div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-5 font-weight-bold">Price (Per Unit):</div>
+          <div class="col-md-7">₹{{ product.price }}</div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-5 font-weight-bold">Available:</div>
+          <div class="col-md-7">{{ product.available }}</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <img *ngIf="product.imagePaths"
+          [src]="'http://localhost:8080' + product.imagePaths.trim()"
+          alt="Product Image"
+          class="img-fluid rounded shadow-sm mb-2"
+          style="max-height: 300px;">
+        <p *ngIf="!product.imagePaths">Image not available</p>
+      </div>
+
+    <div class="card-footer text-end">
+      <button (click)="backOnList()" class="btn btn-outline-info btn-lg">Back</button>
+    </div>
+  </div>
+</div>

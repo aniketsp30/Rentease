@@ -1,0 +1,61 @@
+<app-nav-admin></app-nav-admin>
+
+<div class="container">
+  <!-- Toggle Buttons -->
+  <div class="btn-group mt-3 mb-3" role="group">
+    <input
+      type="radio"
+      class="btn-check"
+      name="options"
+      id="products"
+      [(ngModel)]="selectedOption"
+      (change)="onRadioChange('products')"
+      value="products"
+    />
+    <label class="btn btn-outline-primary" for="products">Products</label>
+
+    <input
+      type="radio"
+      class="btn-check"
+      name="options"
+      id="users"
+      [(ngModel)]="selectedOption"
+      (change)="onRadioChange('users')"
+      value="users"
+    />
+    <label class="btn btn-outline-primary" for="users">Users</label>
+
+    <input
+      type="radio"
+      class="btn-check"
+      name="options"
+      id="requests"
+      [(ngModel)]="selectedOption"
+      (change)="onRadioChange('requests')"
+      value="requests"
+    />
+    <label class="btn btn-outline-primary" for="requests">Requests</label>
+  </div>
+
+  <!-- ADD Buttons -->
+  <button
+    *ngIf="selectedOption === 'products'"
+    routerLink="create-product"
+    class="btn btn-success btn-lg rounded-circle shadow"
+    style="position: fixed; top: 100px; right: 40px;"
+  >
+    ADD
+  </button>
+
+  <button
+    *ngIf="selectedOption === 'users'"
+    routerLink="create-user"
+    class="btn btn-success btn-lg rounded-circle shadow"
+    style="position: fixed; top: 100px; right: 40px;"
+  >
+    ADD
+  </button>
+
+  <!-- Child Outlet -->
+  <router-outlet></router-outlet>
+</div>

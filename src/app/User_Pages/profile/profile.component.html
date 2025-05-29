@@ -1,0 +1,80 @@
+
+<div class="container" style="margin:5%;">
+  <div class="main-body">
+    <!-- /Breadcrumb -->
+    <div class="row gutters-sm">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+            </div>
+            <div class=" mt-3">
+              <div class="col-sm-12 text-secondary">
+                <h1 style="text-align: center;">{{user.uname}}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8" style="text-align: center;">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">ID</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{user.uid}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Full Name</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+    			    <span >{{user.uname}}</span>
+		          </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Email</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+    			    <span >{{user.username}}</span>
+		          </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Mobile</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <span>{{user.phone}}</span>
+              </div>
+            </div>
+            <hr>
+            
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Address</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <span>{{user.address}}</span>
+              </div>
+            </div>
+            <hr>
+            <div class="row" >
+              <div class="col-sm-12" disabled >
+                <a class="btn btn-info bold" style="width: 200px;" target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>              

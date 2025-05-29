@@ -1,0 +1,54 @@
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<div class="container mt-4">
+
+  <div *ngIf="requests.length === 0">
+    <p>No rent requests found.</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let request of requests">
+      <div class="card h-100 shadow-sm">
+
+        <!-- Product Image -->
+        <img *ngIf="request.product.imagePaths"
+             [src]="'http://localhost:8080' + request.product.imagePaths.trim()"
+             class="card-img-top"
+             alt="Product Image"
+             style="height: 200px; object-fit: cover;">
+
+        <!-- Card Body -->
+        <div class="card-body" style="background-color: rgb(126, 192, 211);">
+          <h5 class="card-title">{{ request.product.name }}</h5>
+          <p class="card-text">{{ request.product.description }}</p>
+          <p><strong>Rent Date:</strong> {{ request.rent_date | date: 'yyyy-MM-dd' }}</p>
+          <p><strong>Return Date:</strong> {{ request.return_date | date: 'yyyy-MM-dd' }}</p>
+        </div>
+
+        <!-- Card Footer -->
+        <div class="card-footer" style="background-color: lightblue;">
+          <div *ngIf="request.status === 'REQUEST'" class="badge bg-secondary">Pending Approval</div>
+          <div *ngIf="request.status === 'REJECTED'" class="badge bg-danger">Rejected</div>
+
+          <!-- Approved: Show Pay Button (if no payment or status null) -->
+          <div *ngIf="request.status === 'APPROVED' && (!request.payment || !request.payment.status)">
+            <button class="btn btn-success btn-sm" (click)="goToPayment(request)">Pay</button>
+          </div>
+
+          <!-- Payment Success -->
+          <div *ngIf="request.status === 'PAID'" class="mt-2">
+            <span class="badge bg-success">Payment Done</span>
+            <button class="btn btn-primary btn-sm ms-2" (click)="printReceipt(request)">Print Receipt</button>
+          </div>
+
+          <!-- Payment Failed -->
+          <div *ngIf="request.status === 'UNPAID'" class="badge bg-danger mt-2">
+            Payment Failed
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

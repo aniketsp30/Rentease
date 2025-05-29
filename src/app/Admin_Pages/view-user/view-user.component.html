@@ -1,0 +1,36 @@
+<div class="container mt-5 center">
+  <h1 class="text-center mb-4">Product Details</h1>
+  <div class="card ms-5" >
+    <div class="card-header bg-black text-white ">
+      <h4 class="mb-0 ms-5">User ID: {{user.uid}}</h4>
+    </div>
+    <div class="card-body ms-5">
+      <div class="row mb-3">
+        <div class="col-md-4  font-weight-bold">User Name:</div>
+        <div class="col-md-8 b">{{user.uname}}</div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-4 font-weight-bold">Username(Email):</div>
+        <div class="col-md-8">{{user.username}}</div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-4 font-weight-bold">Phone:</div>
+        <div class="col-md-8">{{user.phone}}</div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-4 font-weight-bold">Address :</div>
+        <div class="col-md-8">{{user.address}}</div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-4 font-weight-bold">Password:</div>
+        <div class="col-md-8">{{user.password}}</div>
+      </div>
+     
+
+       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button (click)="backOnList()" class="btn  me-md-2 btn-outline-info btn-lg" type="button">Back</button>
+        </div>
+    </div>
+
+  </div>
+</div>

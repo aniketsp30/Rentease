@@ -1,0 +1,24 @@
+<div class="rent-form" style="width: fit-content;">
+  <label for="rentDatetime">Rent Date and Time:</label>
+  <input
+    type="datetime-local"
+    id="rentDatetime"
+    [(ngModel)]="rentDatetime"
+    class="form-control mb-1"
+    style="width: 100%;"
+
+  />
+
+  <label for="returnDatetime">Return Date and Time:</label>
+  <input
+    type="datetime-local"
+    id="returnDatetime"
+    [(ngModel)]="returnDatetime"
+    class="form-control mb-1"
+    style="width: 100%;"
+  />
+
+  <button (click)="rent()" class="btn btn-primary">Rent</button>
+
+  <p class="mt-3" *ngIf="message">{{ message }}</p>
+</div>

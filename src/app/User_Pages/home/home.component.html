@@ -1,0 +1,66 @@
+        
+    <div class="back">
+      <img src="http://localhost:8080/background.jpg" alt="Background" height="600px"   />
+      <a href="http://localhost:4200/user-dashboard/items"><button class="hm-btn" >Explore</button></a>
+    </div>
+    
+    
+    <!-- Category CARD LAYOUT -->
+    <div class="container-fluid mt-5" style="text-align: center;">
+        <h1 style="display: block;
+                margin-left: auto;
+                margin-right: auto;">Recommended Category</h1>
+        <div style="margin-left: 7rem;">
+            <div class="row" >
+                <div class="col-md-2 mb-4 " *ngFor="let category of categories" (click)="goToCategory(category.title)">
+                  <div class="card h-100" style="cursor: pointer;">
+                        <div class="card-body" style="background-color: rgb(126, 192, 211);">
+                          <h5 class="card-title">{{ category.icon }}<br>{{ category.title }}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center">
+    <div class="back">
+        <img src="http://localhost:8080/Tools.jpg" alt="Background" height="600px"   />
+        <h1 class="title1" style="display: block;
+            margin-left: 25%;
+            margin-right:25%
+            ">Rent Anything You Want</h1>
+    </div>
+    </div>
+     
+
+        
+       
+    <!-- Featured Listings Section -->
+    <section class="container my-5">
+        <h2 class="text-center mb-4">TOP Rented</h2>
+            <div class="row text-center" *ngIf="topProducts.length">
+            <div class="col-md-3"*ngFor="let product of topProducts">
+                <div class="card">
+                    <img *ngIf="product.imagePaths"
+                                [src]="'http://localhost:8080' + product.imagePaths.trim()"
+                                alt="Product Image"
+                                class="img-fluid rounded shadow-sm mb-2"
+                                style="height: 300px;min-width:200px">
+                              <p *ngIf="!product.imagePaths">Image not available</p>                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.price }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="row text-center">
+    <div class="back">
+        <img src="http://localhost:8080/Clothes1.jpg" alt="Background" height="600px"   />
+        <h1 class="title2" style="display: block;
+            margin-left: 25%;
+            margin-right:25%
+            ">Experience Luxury Without the Price</h1>
+    </div>
+    </div>
+    
